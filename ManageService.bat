@@ -388,6 +388,8 @@ net start "VMware NAT Service"
 
 net start VMUSBArbService
 
+net start VMwareHostd
+
 echo 服务启动完毕!
 
 goto vmware
@@ -399,6 +401,8 @@ echo "正在关闭vmware相关开机服务..."
 net stop VMnetDHCP
 
 net stop "VMware NAT Service"
+
+net stop VMwareHostd
 
 net stop VMUSBArbService
 
@@ -419,6 +423,8 @@ sc config VMnetDHCP start= demand
 sc config "VMware NAT Service" start= demand
 
 sc config VMUSBArbService start= demand
+
+sc config VMwareHostd start= demand
 
 echo 成功切换为手动模式!
 
